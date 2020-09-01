@@ -3,6 +3,7 @@ import Counter from '../components/Counter';
 import { connect } from 'react-redux';
 import { increase, decrease } from '../modules/counter';
 // import { bindActionCreators } from 'redux';
+// 하단의 주석 connect에서 사용됨
 
 const CounterContainer = ({ number, increase, decrease }) => {
   return (
