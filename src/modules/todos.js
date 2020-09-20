@@ -83,20 +83,20 @@ const initialState = {
 
 const todos = handleActions(
   {
-    [CHANGE_INPUT]: (state, action) => ({ ...state, input: action.payload }),
-    [INSERT]: (state, action) => ({
+    [CHANGE_INPUT]: (state, { payload: input }) => ({ ...state, input }),
+    [INSERT]: (state, { payload: todo }) => ({
       ...state,
-      toods: state.todos.concat(action.payload),
+      toods: state.todos.concat(todo),
     }),
-    [TOGGLE]: (state, action) => ({
+    [TOGGLE]: (state, { payload: id }) => ({
       ...state,
       todos: state.todos.map((todo) =>
-        todo.do === action.payload ? { ...todo, done: !todo.done } : todo,
+        todo.do === id ? { ...todo, done: !todo.done } : todo,
       ),
     }),
-    [REMOVE]: (state, action) => ({
+    [REMOVE]: (state, { payload: id }) => ({
       ...state,
-      todos: state.todo.filter((todo) => todo.id === action.payload),
+      todos: state.todo.filter((todo) => todo.id === id),
     }),
   },
   initialState,
